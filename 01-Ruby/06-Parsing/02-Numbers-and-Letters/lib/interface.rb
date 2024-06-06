@@ -16,6 +16,7 @@ puts "******** Now your result ********"
 result = run_game(attempt, grid, start_time, end_time)
 
 puts "Your word: #{attempt}"
+
 puts "Time Taken to answer: #{result[:time]}"
 puts "Your score: #{result[:score]}"
 puts "Message: #{result[:message]}"
