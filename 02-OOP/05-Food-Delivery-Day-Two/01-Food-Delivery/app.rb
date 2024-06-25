@@ -6,13 +6,18 @@ require_relative "app/repositories/meal_repository"
 require_relative "app/controllers/meals_controller"
 require_relative "app/repositories/customer_repository"
 require_relative "app/controllers/customers_controller"
+require_relative "app/repositories/employee_repository"
+require_relative "app/controllers/sessions_controller"
 require_relative "router"
 
 MEAL_CSV_FILE = File.join(__dir__, "data/meals.csv")
 CUSTOMER_CSV_FILE = File.join(__dir__, "data/customers.csv")
+EMPLOYEE_CSV_FILE = File.join(__dir__, "data/employees.csv")
 meals_repo = MealRepository.new(MEAL_CSV_FILE)
 customers_repo = CustomerRepository.new(CUSTOMER_CSV_FILE)
+employee_repo = EmployeeRepository.new(EMPLOYEE_CSV_FILE)
 meals_controller = MealsController.new(meals_repo)
 customers_controller = CustomersController.new(customers_repo)
-router = Router.new(meals_controller, customers_controller)
+sessions_controller = SessionsController.new(employee_repo)
+router = Router.new(meals_controller, customers_controller, sessions_controller)
 router.run

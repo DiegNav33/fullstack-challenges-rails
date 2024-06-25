@@ -11,18 +11,10 @@ class Employee
   end
 
   def manager?
-    if @role == "manager"
-      true
-    else
-      false
-    end
+    @role == "manager"
   end
 
   def rider?
-    if @role == "rider"
-      true
-    else
-      false
-    end
+    @role == "rider"
   end
 end
