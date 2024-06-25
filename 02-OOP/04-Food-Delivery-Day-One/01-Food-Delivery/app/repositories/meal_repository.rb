@@ -25,6 +25,18 @@ class MealRepository
     @meals.find {|meal| meal.id == id}
   end
 
+  def destroy(index)
+    @meals.delete_at(index)
+    save_csv
+  end
+
+  def edit(index, new_attributes)
+    meal = @meals[index]
+    meal.name = new_attributes[:name] unless new_attributes[:name].empty?
+    meal.price = new_attributes[:price] unless new_attributes[:price].nil?
+    save_csv
+  end
+
   private
 
   def load_csv

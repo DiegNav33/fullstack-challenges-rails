@@ -25,6 +25,18 @@ class CustomerRepository
     @customers.find {|customer| customer.id == id}
   end
 
+  def destroy(index)
+    @customers.delete_at(index)
+    save_csv
+  end
+
+  def edit(index, new_attributes)
+    customer = @customers[index]
+    customer.name = new_attributes[:name] unless new_attributes[:name].empty?
+    customer.address = new_attributes[:address] unless new_attributes[:address].empty?
+    save_csv
+  end
+
   private
 
   def save_csv

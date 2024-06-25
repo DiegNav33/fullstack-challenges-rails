@@ -19,6 +19,20 @@ class CustomersController
     @repository.create(customer)
   end
 
+  def remove
+    display_customers
+    index = @view.ask_user_index
+    @repository.destroy(index)
+  end
+
+  def update
+    display_customers
+    index = @view.ask_user_index
+    new_name = @view.ask_user_name
+    new_address = @view.ask_user_address
+    @repository.edit(index, name: new_name, address: new_address)
+  end
+
   private
 
   def display_customers

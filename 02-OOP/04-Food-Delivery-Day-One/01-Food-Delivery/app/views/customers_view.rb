@@ -15,4 +15,9 @@ class CustomersView
     puts "What's the customer's address?"
     return gets.chomp
   end
+
+  def ask_user_index
+    puts "Pick with the Index number!"
+    return gets.chomp.to_i - 1
+  end
 end
