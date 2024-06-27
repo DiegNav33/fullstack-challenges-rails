@@ -2,10 +2,11 @@
 
 class Router
 
-  def initialize(meals_controller, customers_controller, sessionsController)
+  def initialize(meals_controller, customers_controller, sessions_controller, orders_controller)
     @meals_controller = meals_controller
     @customers_controller = customers_controller
-    @sessionsController = sessionsController
+    @sessions_controller = sessions_controller
+    @orders_controller = orders_controller
     @running = true
     @current_user = nil
   end
@@ -15,7 +16,7 @@ class Router
     puts "Welcome !"
     puts "           --           "
     while @running
-      @current_user = @sessionsController.login
+      @current_user = @sessions_controller.login
       puts space_between_action
       while @current_user
         if @current_user.manager?
@@ -59,21 +60,21 @@ class Router
       @customers_controller.update
       puts space_between_action
     when 9
-      puts "TODO"
+      @orders_controller.list_undelivered_orders
       puts space_between_action
     when 10
-      puts "TODO"
+      @orders_controller.add
       puts space_between_action
     when 11
       logout!
-      puts "See you next time!"
+      puts "Logging out..."
       puts space_between_action
     when 12
       stop!
       puts "See you next time! End of the program"
       puts space_between_action
     else
-      puts "Choose a correct action"
+      puts "Choose a correct action between 1 to 12"
     end
   end
 
@@ -81,21 +82,21 @@ class Router
     space_between_action = "\n" * 10
     case action
     when 1
-      puts "TODO"
+      @orders_controller.list_my_orders(@current_user)
       puts space_between_action
     when 2
-      puts "TODO"
+      @orders_controller.mark_as_delivered(@current_user)
       puts space_between_action
     when 3
       logout!
-      puts "See you next time!"
+      puts "Logging out..."
       puts space_between_action
     when 4
       stop!
       puts "See you next time! End of the program"
       puts space_between_action
     else
-      puts "Choose a correct action"
+      puts "Choose a correct action between 1 to 4"
     end
   end
 
@@ -113,8 +114,8 @@ class Router
     puts "6 - Add a new customer"
     puts "7 - Remove a customer"
     puts "8 - Update a customer"
-    puts "9 - Add a new order"
-    puts "10 - List all the non delivered orders"
+    puts "9 - List all the non delivered orders"
+    puts "10 - Add a new order"
     puts "11 - Logout"
     puts "12 - Stop and exit the program"
     puts ""
@@ -128,8 +129,8 @@ class Router
     puts ""
     puts "WELCOME #{@current_user.username.upcase}: "
     puts ""
-    puts "1 - Mark non delivered orders"
-    puts "2 - List all the non delivered orders"
+    puts "1 - List all the non delivered orders"
+    puts "2 - Mark non delivered orders"
     puts "3 - Logout"
     puts "4 - Stop and exit the program"
     puts ""

@@ -26,6 +26,15 @@ class OrderRepository
     end
   end
 
+  def mark_as_delivered(order)
+    order.deliver!
+    save_csv
+  end
+
+  def my_undelivered_orders(employee)
+    @orders.select { |order| order.employee == employee && !order.delivered? }
+  end
+
   private
 
   def load_csv
@@ -44,7 +53,7 @@ class OrderRepository
     CSV.open(@csv_file, "wb") do |csv|
       csv << %w[id delivered meal_id customer_id employee_id]
       @orders.each do |order|
-        csv << [order.id, order.delivered, order.meal.id, order.customer.id, order.employee.id]
+        csv << [order.id, order.delivered?, order.meal.id, order.customer.id, order.employee.id]
       end
     end
   end
