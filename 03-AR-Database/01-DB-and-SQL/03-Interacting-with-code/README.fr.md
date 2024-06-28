@@ -1,5 +1,4 @@
 ## Contexte et objectifs
-
 Le moment est venu d’utiliser Ruby pour interagir avec la base de données `jukebox`. Pour cela, on a besoin d'une gem appelée [sqlite3](http://rubygems.org/gems/sqlite3).
 
 Pour installer la gem sur ton ordinateur, exécute la commande suivante dans le terminal :
