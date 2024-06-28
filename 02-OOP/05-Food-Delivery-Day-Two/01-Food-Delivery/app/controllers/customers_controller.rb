@@ -9,7 +9,11 @@ class CustomersController
   end
 
   def list
-    display_customers
+    if @repository.customers.empty?
+      @view.message_empty_list
+    else
+      display_customers
+    end
   end
 
   def add
@@ -21,16 +25,28 @@ class CustomersController
 
   def remove
     display_customers
-    index = @view.ask_user_index
-    @repository.destroy(index)
+    unless @repository.customers.empty?
+      index = @view.ask_user_index
+      if index >= 0 && index < @repository.customers.length
+        @repository.destroy(index)
+      else
+        @view.error_message
+      end
+    end
   end
 
   def update
     display_customers
-    index = @view.ask_user_index
-    new_name = @view.ask_user_name
-    new_address = @view.ask_user_address
-    @repository.edit(index, name: new_name, address: new_address)
+    unless @repository.customers.empty?
+      index = @view.ask_user_index
+      if index >= 0 && index < @repository.customers.length
+        new_name = @view.ask_user_name
+        new_address = @view.ask_user_address
+        @repository.edit(index, name: new_name, address: new_address)
+      else
+        @view.error_message
+      end
+    end
   end
 
   private

@@ -9,7 +9,11 @@ class MealsController
   end
 
   def list
-    display_meals
+    if @repository.meals.empty?
+      @view.message_empty_list
+    else
+      display_meals
+    end
   end
 
   def add
@@ -21,16 +25,28 @@ class MealsController
 
   def remove
     display_meals
-    index = @view.ask_user_index
-    @repository.destroy(index)
+    unless @repository.meals.empty?
+      index = @view.ask_user_index
+      if index >= 0 && index < @repository.meals.length
+        @repository.destroy(index)
+      else
+        @view.error_message
+      end
+    end
   end
 
   def update
     display_meals
-    index = @view.ask_user_index
-    new_name = @view.ask_user_name
-    new_price = @view.ask_user_price
-    @repository.edit(index, name: new_name, price: new_price)
+    unless @repository.meals.empty?
+      index = @view.ask_user_index
+      if index >= 0 && index < @repository.meals.length
+        new_name = @view.ask_user_name
+        new_price = @view.ask_user_price
+        @repository.edit(index, name: new_name, price: new_price)
+      else
+        @view.error_message
+      end
+    end
   end
 
   private

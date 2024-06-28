@@ -16,24 +16,59 @@ class OrdersController
     @customers_view = CustomersView.new
     @employees_view = EmployeesView.new
   end
+
   # Start manager
+
+  # def add
+  #   meals = display_meals
+  #   meal_index = @orders_view.ask_user_index
+  #   meal = meals[meal_index]
+  #   customers = display_customers
+  #   customer_index = @orders_view.ask_user_index
+  #   customer = customers[customer_index]
+  #   employees = display_employees
+  #   employee_index = @orders_view.ask_user_index
+  #   employee = employees[employee_index]
+  #   order = Order.new(meal: meal, customer: customer, employee: employee)
+  #   @order_repository.create(order)
+  # end
+
   def add
     meals = display_meals
     meal_index = @orders_view.ask_user_index
-    meal = meals[meal_index]
+    if meal_index >= 0 && meal_index < @meal_repository.meals.length
+      meal = meals[meal_index]
+    else
+      @meals_view.error_message
+      return
+    end
     customers = display_customers
     customer_index = @orders_view.ask_user_index
-    customer = customers[customer_index]
+    if customer_index >= 0 && customer_index < @customer_repository.customers.length
+      customer = customers[customer_index]
+    else
+      @customers_view.error_message
+      return
+    end
     employees = display_employees
     employee_index = @orders_view.ask_user_index
-    employee = employees[employee_index]
+    if employee_index >= 0 && employee_index < @employee_repository.employees.length
+      employee = employees[employee_index]
+    else
+      @employees_view.error_message
+      return
+    end
     order = Order.new(meal: meal, customer: customer, employee: employee)
     @order_repository.create(order)
   end
 
   def list_undelivered_orders
-    undelivered_orders = @order_repository.undelivered_orders
-    @orders_view.display_orders(undelivered_orders)
+    if @order_repository.undelivered_orders.empty?
+      @orders_view.message_empty_list
+    else
+      undelivered_orders = @order_repository.undelivered_orders
+      @orders_view.display_orders(undelivered_orders)
+    end
   end
   # End manager
 
@@ -44,10 +79,16 @@ class OrdersController
 
   def mark_as_delivered(current_user)
     list_my_undelivered_orders(current_user)
-    index = @orders_view.ask_user_index
-    my_orders = @order_repository.my_undelivered_orders(current_user)
-    order = my_orders[index]
-    @order_repository.mark_as_delivered(order)
+    unless @order_repository.orders.empty?
+      index = @orders_view.ask_user_index
+      if index >= 0 && index < @order_repository.orders.length
+        my_orders = @order_repository.my_undelivered_orders(current_user)
+        order = my_orders[index]
+        @order_repository.mark_as_delivered(order)
+      else
+        @orders_view.error_message
+      end
+    end
   end
   # End rider
 

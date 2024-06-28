@@ -1,5 +1,3 @@
-# TODO: implement the router of your app.
-
 class Router
 
   def initialize(meals_controller, customers_controller, sessions_controller, orders_controller)
@@ -12,9 +10,12 @@ class Router
   end
 
   def run
-    space_between_action = "\n" * 5
-    puts "Welcome !"
-    puts "           --           "
+    space_between_action = "\n" * 3
+    puts "┌──────────────────────────────────────────┐"
+    puts "│         MAKAN RESTAURANT'S BOARD         │"
+    puts "└──────────────────────────────────────────┘"
+    puts " ------------ Please sign-in ------------"
+    puts space_between_action
     while @running
       @current_user = @sessions_controller.login
       puts space_between_action
@@ -67,14 +68,20 @@ class Router
       puts space_between_action
     when 11
       logout!
-      puts "Logging out..."
+      puts "┌──────────────────────────────────────────┐"
+      puts "│              Logging out...              │"
+      puts "└──────────────────────────────────────────┘"
       puts space_between_action
     when 12
       stop!
-      puts "See you next time! End of the program"
+      puts "┌──────────────────────────────────────────┐"
+      puts "│   See you next time ! Have a great day   │"
+      puts "└──────────────────────────────────────────┘"
       puts space_between_action
     else
-      puts "Choose a correct action between 1 to 12"
+      puts "┌──────────────────────────────────────────┐"
+      puts "│        ⚠️  Choose between 1 to 12         │"
+      puts "└──────────────────────────────────────────┘"
     end
   end
 
@@ -89,14 +96,20 @@ class Router
       puts space_between_action
     when 3
       logout!
-      puts "Logging out..."
+      puts "┌──────────────────────────────────────────┐"
+      puts "│              Logging out...              │"
+      puts "└──────────────────────────────────────────┘"
       puts space_between_action
     when 4
       stop!
-      puts "See you next time! End of the program"
+      puts "┌──────────────────────────────────────────┐"
+      puts "│   See you next time ! Have a great day   │"
+      puts "└──────────────────────────────────────────┘"
       puts space_between_action
     else
-      puts "Choose a correct action between 1 to 4"
+      puts "┌──────────────────────────────────────────┐"
+      puts "│        ⚠️  Choose between 1 to 4          │"
+      puts "└──────────────────────────────────────────┘"
     end
   end
 

@@ -3,6 +3,8 @@ require_relative "../models/order"
 
 class OrderRepository
 
+  attr_reader :orders
+
   def initialize(csv_file, meal_repository, customer_repository, employee_repository)
     @csv_file = csv_file
     @meal_repository = meal_repository

@@ -3,6 +3,8 @@ require_relative "../models/employee"
 
 class EmployeeRepository
 
+  attr_reader :employees
+
   def initialize(csv_file)
     @csv_file = csv_file
     @employees = []

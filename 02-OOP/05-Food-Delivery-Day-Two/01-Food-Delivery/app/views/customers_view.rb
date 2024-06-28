@@ -20,4 +20,16 @@ class CustomersView
     puts "Pick with the Index number!"
     return gets.chomp.to_i - 1
   end
+
+  def message_empty_list
+    puts "┌───────────────────────────────────────┐"
+    puts "│     There is no customers yet !       |"
+    puts "└───────────────────────────────────────┘"
+  end
+
+  def error_message
+    puts "┌──────────────────────────────────────────┐"
+    puts "│ ⚠️  An error occurred, please try again!  │"
+    puts "└──────────────────────────────────────────┘"
+  end
 end
