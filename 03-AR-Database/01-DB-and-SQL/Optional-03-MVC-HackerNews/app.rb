@@ -1,6 +1,6 @@
 require "sqlite3"
 
-# Instantiate a constant variable, DB, usable in all your files
+# Instantiate a constant variable, DB, usable in all the files
 dir = File.dirname(__FILE__)
 DB = SQLite3::Database.new(File.join(dir, "db/posts.db"))
 

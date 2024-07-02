@@ -1,3 +1,5 @@
+require_relative "controllers/posts_controller"
+
 class Router
   def initialize
     @controller = PostsController.new
@@ -15,12 +17,27 @@ class Router
   private
 
   def route_action(action)
+    space_between_action = "\n" * 10
     case action
-    when 1 then @controller.index
-    when 2 then @controller.create
-    when 3 then @controller.update
-    when 4 then @controller.destroy
-    when 5 then @controller.upvote
+    when 1
+      @controller.index
+      puts space_between_action
+    when 2
+      @controller.create
+      puts space_between_action
+    when 3
+      @controller.update
+      puts space_between_action
+    when 4
+      @controller.destroy
+      puts space_between_action
+    when 5
+      @controller.upvote
+      puts space_between_action
+    when 6
+      puts "See you next time!"
+      puts space_between_action
+      exit
     end
   end
 
@@ -30,7 +47,8 @@ class Router
       "Add a post",
       "Edit a post title & url",
       "Delete a post",
-      "Vote for a post"
+      "Vote for a post",
+      "Exit the program"
     ]
   end
 
