@@ -19,3 +19,4 @@ Avant de commencer à modifier la **structure** du schéma de base de données, 
 ## Enseignements clés
 
 Comprendre ce que chacune des tâches `rake` listées ci-dessus permet de faire, et utiliser la bonne tâche pour créer ta base de données.
+cle
