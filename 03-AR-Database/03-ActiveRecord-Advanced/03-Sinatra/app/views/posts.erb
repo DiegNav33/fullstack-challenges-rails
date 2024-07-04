@@ -1,3 +1,30 @@
-<h1>Hacker News</h1>
+<%=erb :new_post%>
+<div id="splitLine"></div>
+<%# <hr> %>
+<div class="listPost">
+  <%if @posts_desc.empty?%>
+  <p style="text-align: center; margin-top: 20px;">There are no posts yet.</p>
+  <%else%>
+    <h2>List of all the posts</h2>
+    <ol>
+      <%@posts_desc.each do |post|%>
+        <li>
+          <a href="<%= post.url %>" target="a_blank" style="color:#333;"><%= post.title %> | <%= post.votes %> vote(s)</a>
+          <div>
+            <form action="/posts/<%= post.id %>/upvote" method="POST" style="display: inline;">
+            <input type="hidden" name="_method" value="PUT">
+            <input type="submit" value="Upvote">
+            </form>
+            <form action="/posts/<%= post.id %>/delete" method="POST" style="display: inline;">
+              <input type="hidden" name="_method" value="DELETE">
+              <input class="delete" type="submit" value="Delete">
+            </form>
+          </div>
+          <p style="font-size: .8rem; font-weight: lighter">By: <%= post.user.username%> | Posted on <%= post.created_at.strftime('%d-%m-%Y at %I:%M %p') %></p>
+        </li>
+      <% end %>
+    </ol>
+  <%end%>
+</div>
 
-# TODO: list posts here. You can use instance variables set in the controller (app.rb)
+<%# # TODO: list posts here. You can use instance variables set in the controller (app.rb) %>

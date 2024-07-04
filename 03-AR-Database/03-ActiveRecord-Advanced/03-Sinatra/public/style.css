@@ -1,1 +1,206 @@
 /* Add here custom style rules for your views */
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  margin: auto;
+  font-size: 1.6rem;
+  background-color: #fafafa;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+header {
+  background-color: #0F110C;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem 0;
+
+  h1{
+    margin: 0;
+    transition: .5s;
+  }
+}
+
+main {
+  .container {
+    display: flex;
+    align-items: center;
+  }
+
+  h2 {
+    margin: 0;
+    color: #333;
+    text-align: center;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .newPost, .listPost {
+    margin: 5rem 0;
+    width: 50%;
+  }
+
+  #splitLine {
+    width: 1px;
+    height: 500px; /* Adjust height as needed */
+    background-color: #333;
+  }
+
+  .newPost form {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .newPost form div, .newPost form button {
+    margin: 1.5rem 0 0 0;
+  }
+
+  .newPost form div input {
+    width: 80%;
+    border-radius: 1rem;
+    border: 1px solid #840505;
+    padding: .5rem;
+  }
+
+  .newPost form div label {
+    font-weight: bold;
+  }
+
+  .newPost form button {
+    padding: 1rem 2rem;
+    background-color: #840505;
+    border: 1px solid #333;
+    color: #fff;
+    border-radius: 1rem;
+    /* width: 50%; */
+    cursor: pointer;
+    transition: .5s;
+    font-weight: bold;
+
+    &:hover {
+      background-color: transparent;
+      color: #840505;;
+      border: 1px solid #840505 ;
+    }
+  }
+
+  .listPost form input {
+    /* margin-left: 1.5rem; */
+    cursor: pointer;
+    background-color: #840505;
+    border: 1px solid #333;
+    border-radius: 1rem;
+    color: #fff;
+    padding: .5rem 1.5rem;
+    font-weight: bold;
+    transition: .5s;
+
+    &:hover {
+      background-color: transparent;
+      color: #840505;
+      border: 1px solid #840505;
+    }
+  }
+
+  .listPost form .delete {
+    background-color: purple;
+    border: 1px solid purple;
+
+
+    &:hover {
+      color: purple;
+      background-color: transparent;
+      border: 1px solid purple;
+    }
+  }
+
+  .listPost ol li {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 2rem 0;
+  }
+
+  .listPost ol li p {
+    width: 100%;
+  }
+}
+
+footer {
+  margin-top: auto;
+  background-color: #0F110C;
+  color: #fff;
+
+  .dFlex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .socialMedia {
+    p {
+      margin: 0;
+      padding-bottom: 2rem;
+    }
+
+    a {
+      padding-right: 1rem;
+
+      i {
+          color: #fff;
+          transition: .5s;
+      }
+      .fa-linkedin-in:hover {
+          color: rgb(34, 34, 255);
+      }
+      .fa-instagram:hover{
+          color: purple;
+      }
+      .fa-youtube:hover{
+          color: red;
+      }
+      .fa-github:hover{
+          color:rgb(250, 101, 47);
+      }
+    }
+  }
+
+  .copyright{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    p{
+      font-size: 1.2rem;
+    }
+  }
+
+  .contactFooter {
+    i {
+      color: red;
+    }
+
+    a {
+      color: #fff;
+      transition: .5s;
+
+      &:hover {
+        color: red;
+      }
+    }
+  }
+}
