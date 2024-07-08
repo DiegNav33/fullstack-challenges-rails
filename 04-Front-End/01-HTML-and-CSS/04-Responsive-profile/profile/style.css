@@ -1,0 +1,121 @@
+body {
+  background: #F7F9FC;
+  font-size: 1rem;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #333;
+  margin: 0;
+}
+
+.container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+h1 {
+  color: #fff;
+}
+
+h2, h3 {
+  color: #575F7D;
+}
+
+a {
+  text-decoration: none;
+  color: #6B72E1;
+  transition: .5s;
+}
+
+#nav {
+  background-color: black;
+  padding: 1rem;
+  margin-bottom: 2rem;
+
+  h1{
+    text-align: center;
+    margin: 0;
+  }
+}
+
+.card {
+  /* border: 1px solid red; */
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: .5rem;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+#aboutMe {
+  text-align: center;
+
+  #divPhoto {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 2px solid #575F7D;
+    margin: 0 auto;
+
+    img {
+      width: 100%;
+    }
+  }
+  p {
+    margin-bottom: 3rem;
+  }
+  #site {
+    padding: .8rem;
+    border: 1px solid ;
+    border-radius: .5rem;
+    color: #6B72E1;
+    font-weight: bold;
+
+    &:hover {
+      color: rgb(113, 5, 5);
+    }
+  }
+}
+
+#otherInfo {
+  margin-top: 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .fab {
+    padding: 0 1rem;
+    font-size: 50px;
+    transition: .5s;
+
+    &:hover {
+      color: rgb(113, 5, 5);
+    }
+  }
+}
+
+@media (max-width: 960px) {
+  /* Pour un écran < 960px, cette classe CSS s'applique */
+  .container {
+    width: 70%;
+  }
+}
+
+@media (max-width: 720px) {
+  /* Pour un écran < 720px, cette classe CSS s'applique */
+  .container {
+    width: 80%;
+  }
+}
+
+@media (max-width: 540px) {
+  /* Pour un écran < 540px, cette classe CSS s'applique */
+  .container {
+    width: 90%;
+  }
+}
