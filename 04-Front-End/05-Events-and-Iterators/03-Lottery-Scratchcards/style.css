@@ -40,6 +40,10 @@ ul.scratchcards {
   opacity: 0.8;
 }
 
+span {
+  font-weight: bold;
+}
+
 .footer {
   text-align: right;
 }
