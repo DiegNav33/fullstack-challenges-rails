@@ -1,5 +1,11 @@
 .panels {
   min-height: 100vh;
+  display: flex;
+  cursor: pointer;
+}
+
+p {
+  margin: 0;
 }
 
 .panel {
@@ -10,6 +16,24 @@
   font-size: 20px;
   background-size: cover;
   background-position: center;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  p:first-child {
+    opacity: 0;
+    transform: translateY(-300px);
+    transition: .6s;
+  }
+
+  p:last-child {
+    position: absolute;
+    opacity: 0;
+    transform: translateY(300px);
+    transition: .6s;
+  }
 }
 
 .panel1 { background-image:url(https://images.unsplash.com/photo-1627453999411-dd9c2604c109?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2874&q=80); }
@@ -22,5 +46,24 @@
 .panel p {
   text-shadow:0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
   font-size: 2em;
-  transition : 0.5s;
+  transition : .6s;
+}
+
+.panelOpened {
+  width: 60%;
+
+  p {
+    font-size: 4em;
+  }
+
+  p:first-child {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  p:last-child {
+    transform: translateY(0);
+    opacity: 1;
+    position: relative;
+  }
 }
