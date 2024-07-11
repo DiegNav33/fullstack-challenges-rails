@@ -1,1 +1,42 @@
 /* Your board style here */
+.racer-table td {
+  height: 80px;
+  width: 80px;
+  border: 2px solid #807d7d;
+}
+.racer-table td.active {
+  background-repeat: no-repeat;
+  background-size: 100%;
+
+}
+#player1-race td.active {
+  background-image: url("images/player_1.png");
+  background-position: center;
+}
+#player2-race td.active {
+  background-image: url("images/player_2.png");
+  background-position: center;
+}
+
+#player1-race td:last-child, #player2-race td:last-child  {
+  background-image: url("images/finish.png");
+  background-position: center;
+  background-size: cover;
+}
+
+/* td:last-child.active {
+  background-size: 90%, cover;
+  background-position: center, top left;
+} */
+
+#player1-race td:last-child.active, #player2-race td:last-child.active  {
+  background-image: url(images/player_1.png), url("images/finish.png");
+  background-size: 90%, cover;
+  background-position: center, top left;
+}
+
+#player2-race td:last-child.active {
+  background-image: url(images/player_2.png), url("images/finish.png");
+  background-size: 90%, cover;
+  background-position: center, top left;
+}
