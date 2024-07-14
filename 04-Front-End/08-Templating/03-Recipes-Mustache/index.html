@@ -30,6 +30,28 @@
     </script>
   </head>
   <body class="container bg-light">
+
+
+    <template id="recipesTemplate">
+      <div class="col col-lg-4">
+        <div class="card mb-3">
+          <div class="card-header">
+            <h2>{{name}}</h2>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Ingredients:</h5>
+            <ul class="list-group">
+              {{#ingredients}}
+              <li class="list-group-item">{{.}}</li>
+              {{/ingredients}}
+            </ul>
+            <h5 class="card-title mt-3">{{difficulty}}/10</h5>
+          </div>
+        </div>
+      </div>
+    </template>
+
+
     <div class="row justify-content-center mt-4">
       <div class="col bg-white rounded shadow-sm p-5">
         <div class="row">
