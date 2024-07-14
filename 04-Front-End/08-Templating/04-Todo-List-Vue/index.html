@@ -22,9 +22,20 @@
 <body class="bg-light">
   <div class="row justify-content-center mt-4">
     <div class="col-lg-4 bg-white rounded shadow-sm p-5">
-     <h1 class="mb-3">🗒 My Todo List</h1>
-     <div id="todosContainer">
-       {{message}}
+      <h1 class="mb-3">🗒 My Todo List</h1>
+      <div id="todosContainer" v-cloak>
+        {{message}}
+        <div v-for="(todo, index) in todos" class="shadow-sm rounded px-4 py-3 mb-2 border d-flex justify-content-between">
+          <div class="d-flex">
+            <input class="d-flex form-check-input me-1" type="checkbox" v-bind:checked="todo.done">
+            <div>{{todo.title}}</div>
+          </div>
+          <button type="button" class="btn-close" v-on:click="deleteTodo(index)"></button>
+        </div>
+        <div class="input-group mb-3 mt-5">
+          <input v-model="newTodo" type="text" class="form-control p-2 rounded" placeholder="Your task goes here">
+          <button v-on:click="addTodo" class="btn btn-primary" type="button">Add</button>
+        </div>
        <!-- Your code goes here -->
      </div>
    </div>
