@@ -25,10 +25,10 @@
       <h1 class="mb-5">API Key</h1>
 
       <!-- TODO: Implement a copy to clipboard -->
-      <div class="input-group w-50">
-        <input class="form-control" type="text" value="0628aea3-48f6-4183-80be-c5def07939f2" readonly>
+      <div class="input-group w-50" data-controller="copy-to-clipboard" data-copy-to-clipboard-feedback-text-value="Copied!">
+        <input class="form-control" type="text" data-copy-to-clipboard-target="input" value="0628aea3-48f6-4183-80be-c5def07939f2" readonly>
         <div class="input-group-append">
-          <button class="btn btn-outline-primary">Copy to Clipboard</button>
+          <button class="btn btn-outline-primary" data-copy-to-clipboard-target="button" data-action="click->copy-to-clipboard#copy">Copy to Clipboard</button>
         </div>
       </div>
     </div>
