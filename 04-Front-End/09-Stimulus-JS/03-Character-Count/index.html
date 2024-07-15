@@ -21,8 +21,12 @@
   </head>
 
   <body>
-    <div class="container p-5">
-      <!-- TODO: Code here -->
+    <div class="container p-5" id="container" data-controller="character-count" data-character-count-limit-value="150">
+      <div>
+        <label for="text">Text</label>
+        <textarea name="text" id="text" rows="4" placeholder="Your text..." data-character-count-target="input" data-action="keyup->character-count#updateCounter"></textarea>
+      </div>
+      <p data-character-count-target="counter"></p>
     </div>
 
     <script src="lib/index.js" type="module"></script>
