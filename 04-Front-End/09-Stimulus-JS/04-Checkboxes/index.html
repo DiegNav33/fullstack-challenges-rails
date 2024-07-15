@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="application.css">
-    
+
     <script async src="https://ga.jspm.io/npm:es-module-shims@1.6.3/dist/es-module-shims.js"></script>
     <script type="importmap">
       {
@@ -25,28 +25,28 @@
     <div class="container">
       <div class="row">
         <div class="col col-6">
-          <form class="mt-5">
+          <form class="mt-5" data-controller="check-all-checkboxes">
             <h3>Categories</h3>
             <div class="form-check">
-              <input id="check-all" type="checkbox" class="form-check-input"> 
+              <input id="check-all" type="checkbox" class="form-check-input" data-action="change->check-all-checkboxes#checkAll" data-check-all-checkboxes-target="checkAllbox">
               <label for="check-all">Check all</label>
             </div>
             <hr>
-            <div>
+            <div id="checkboxes">
               <div class="form-check">
-                <input id="checkbox-appartment" type="checkbox" class="form-check-input">
+                <input id="checkbox-appartment" type="checkbox" class="form-check-input" data-check-all-checkboxes-target="otherBox">
                 <label for="checkbox-appartment">Appartment 🏢</label>
               </div>
               <div class="form-check">
-                <input id="checkbox-house" type="checkbox" class="form-check-input">
+                <input id="checkbox-house" type="checkbox" class="form-check-input" data-check-all-checkboxes-target="otherBox">
                 <label for="checkbox-house">House 🏡</label>
               </div>
               <div class="form-check">
-                <input id="checkbox-igloo" type="checkbox" class="form-check-input">
+                <input id="checkbox-igloo" type="checkbox" class="form-check-input" data-check-all-checkboxes-target="otherBox">
                 <label for="checkbox-igloo">Igloo 🧊</label>
               </div>
               <div class="form-check">
-                <input id="checkbox-cabin" type="checkbox" class="form-check-input">
+                <input id="checkbox-cabin" type="checkbox" class="form-check-input" data-check-all-checkboxes-target="otherBox">
                 <label for="checkbox-cabin">Cabin 🌳</label>
               </div>
             </div>
