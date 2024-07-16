@@ -1,0 +1,12 @@
+.chart {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.chart2, .chart3 {
+  width: 1000px;
+}
+
+.chart3 {
+  width: 800px;
+}
