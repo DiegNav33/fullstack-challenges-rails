@@ -6,7 +6,7 @@
 def http_stands_for
   # TODO: Return a `string` with the full meaning of the acronym `HTTP`.
   # Hint, the format should look like this:  Hxxx-Txxx Txxx Pxxx
-  return ''
+  return "Hyper-Text Transfer Protocol"
 end
 
 def http_requests_per_page
@@ -17,7 +17,7 @@ def http_requests_per_page
   a = 'There is always one HTTP request per page.'
   b = 'There is one HTTP request per resource/file needed for a web page (HTML, CSS, JS, etc).'
 
-  return  # Return the correct variable, `a` or `b`
+  return b
 end
 
 def view_responsibility
@@ -27,5 +27,5 @@ def view_responsibility
   b = 'allows us to define data types in our application'
   c = 'displays information to users'
 
-  return  # Return the correct variable, `a`, `b` or `c`
+  return c
 end
